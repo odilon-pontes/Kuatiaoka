@@ -1,17 +1,18 @@
 package dominio;
 
-public class Aluno {
+public class Usuario {
     private String nome;
     private int idade;
 
-    public Aluno(String nome, int idade) {
+    public Usuario(String nome, int idade) {
         this.nome = nome;
         this.idade = idade;
     }
 
-    public void mostrarAluno() {
+    public void mostrarUsuario() {
         System.out.println("Nome: "+nome);
         System.out.println("Idade: "+idade);
+
     }
 
 }

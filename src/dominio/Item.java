@@ -1,8 +1,11 @@
 package dominio;
 
 public class Item {
-    private String nome;
+    private int  id = 632424;
     private String tipo;
+    private String titulo;
+    private String autor;
+    private String anoPublicacao;
     private Status status;
 
     private enum Status {
@@ -10,15 +13,21 @@ public class Item {
         EMPRESTADO
     }
 
-    public Item(String tipo, String nome) {
+    public Item(String tipo, String titulo, String autor) {
         this.tipo = tipo;
-        this.nome = nome;
+        this.titulo = titulo;
+        this.autor = autor;
         this.status = status.DISPONIVEL;
     }
 
+
     public void mostrarItem() {
-        System.out.println("Tipo: "+tipo);
-        System.out.println("Nome do Item: "+nome);
+        System.out.println("ID: "+id);
+        System.out.println("TIPO: "+tipo);
+        System.out.println("Titulo: "+titulo);
+        System.out.println("Nome do autor: "+autor);
         System.out.println("Status: "+status);
     }
+
+
 }

@@ -1,17 +1,19 @@
 package app;
 
 import ui.Menu;
-import dominio.Aluno;
+import dominio.Usuario;
 import dominio.Item;
 
 public class Main {
     public static void main(String[] args) {
-        Menu.menuInicial();
+        // Menu.menuInicial();
 
-        Aluno aluno1 = new Aluno("João", 17);
-        aluno1.mostrarAluno();
+        Usuario aluno1 = new Usuario("João", 17);
+        // aluno1.mostrarUsuario();
 
-        Item item1 = new Item("Livro", "Álgebra linear");
+        Item item1 = new Item("Livro", "Algebra Linear", "Possani");
         item1.mostrarItem();
+
+
     }
 }
