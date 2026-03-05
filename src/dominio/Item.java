@@ -29,5 +29,26 @@ public class Item {
         System.out.println("Status: "+status);
     }
 
+    public String getTipo() { return tipo; }
+    public void setTipo(String tipo) { this.tipo = tipo;}
 
+    public String getTitulo() { return titulo; }
+    public void setTitulo(String titulo) { this.titulo = titulo; }
+
+    public String getAnoPublicacao() { return anoPublicacao; }
+    public void setAnoPublicacao(String anoPublicacao) { this.anoPublicacao = anoPublicacao; }
+
+    public Status getStatus() { return status; }
+    public void setStatus(Status status) { this.status = status; }
+
+    public String getAutor() {
+        return autor;
+    }
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public int getId() {
+        return id;
+    }
 }

@@ -1,14 +1,12 @@
 package app;
 
-import java.util.Scanner;
-
 import dominio.Estudante;
 import dominio.Funcionario;
 import dominio.Usuario;
-import ui.Menu;
+import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map;
-
+import ui.Menu;
 
 public class Sistema {
     private Menu menu = new Menu();
@@ -39,7 +37,7 @@ public class Sistema {
                 mensagem = "Matheus não sabe Java!";
                 break;
             case 4:
-                mensagem = "Matheus não sabe Java!";
+                consultar();
                 break;
             case 0:
                 mensagem = "Saindo...";
@@ -53,10 +51,13 @@ public class Sistema {
         }
     }
 
+    // GERENCIAR ITENS
     private void gerenciarItens() {
         menu.gerenciarItens();
         return;
     }
+
+    // GERENCIAR USUÁRIOS
     private void gerenciarUsuarios() {
         menu.gerenciarUsuarios();
         int op = sc.nextInt();
@@ -70,7 +71,7 @@ public class Sistema {
                 atualizarUsuario();
                 break;
             case 3:
-                consultarUsuarios();
+                // deletarUsuarios();
                 break;
 
             case 0:
@@ -81,6 +82,8 @@ public class Sistema {
                 break;
         }
     }
+
+    // CADASTRAR USUÁRIOS
     private void cadastrarUsuario() {
         System.out.println("[1] Funcionario");
         System.out.println("[2] Estudante");
@@ -123,9 +126,8 @@ public class Sistema {
         Usuario funcionario = new Funcionario(nome, email, salario);
         users.put(funcionario.getId(), funcionario);
 
-        System.out.println("\nCadastro do funcionário realizado com sucesso!");
-        System.out.println("Pressione ENTER para continuar...\n");
-        sc.nextLine();
+        System.out.println("Cadastro do funcionário realizado com sucesso!");
+        menu.enterSaida(sc);
     }
 
     private void cadastrarEstudante(String nome, String email) {
@@ -135,27 +137,13 @@ public class Sistema {
         Usuario estudante = new Estudante(nome, email, matricula);
         users.put(estudante.getId(), estudante);
 
-        System.out.println("\nCadastro do estudante realizado com sucesso!");
-        System.out.println("Pressione ENTER para continuar...\n");
-        sc.nextLine();
+        System.out.println("Cadastro do estudante realizado com sucesso!");
+        menu.enterSaida(sc);
     }
 
-    private void consultarUsuarios() {
-        System.out.println("USUÁRIOS\n");
-        System.out.printf("%-5s %-20s %-40s %-15s%n", "ID", "Nome", "Email", "Tipo");
-        System.out.println("---------------------------------------------------------------------------");
-        for (Usuario user : users.values()) {
-            System.out.printf("%-5s %-20s %-40s %-15s\n",
-                    user.getId(),
-                    user.getNome(),
-                    user.getEmail(),
-                    user.getTipo()
-            );
-        }
-        System.out.println("\nPressione ENTER para continuar...");
-        sc.nextLine();
-        gerenciarUsuarios();
-    }
+
+
+    // ATUALIZAR USUÁRIOS
     private void atualizarUsuario() {
         System.out.println("Digite o ID do usuário que deseja editar: ");
         int id = sc.nextInt();
@@ -187,14 +175,20 @@ public class Sistema {
                 System.out.printf("Nome: ");
                 String nome = sc.nextLine();
                 user.setNome(nome);
+                System.out.println("Nome alterado com sucesso!");
+                menu.enterSaida(sc);
                 break;
             case 2:
                 System.out.printf("Email: ");
                 String email = sc.nextLine();
                 user.setEmail(email);
+                System.out.println("Email alterado com sucesso!");
+                menu.enterSaida(sc);
                 break;
             case 3:
                 mudarTipo(user);
+                System.out.println("Tipo alterado com sucesso!");
+                menu.enterSaida(sc);
                 break;
             case 0:
                 break;
@@ -231,4 +225,49 @@ public class Sistema {
         }
 
     }
+
+    // CONSULTAS
+    private void consultar() {
+        menu.consultas();
+        int op = sc.nextInt();
+        sc.nextLine();
+
+        switch (op) {
+            case 1:
+                System.out.println("Consultar Itens");
+                break;
+            case 2:
+                consultarUsuarios();
+                break;
+            case 3:
+                System.out.println("Consultar Empréstimos");
+                break;
+            case 4:
+                System.out.println("Consultar Devoluções");
+                break;
+            case 0:
+                break;
+            default:
+                menu.opInvalido();
+                consultar();
+                break;
+        }
+    }
+
+    private void consultarUsuarios() {
+        System.out.println("USUÁRIOS\n");
+        System.out.printf("%-5s %-20s %-40s %-15s%n", "ID", "Nome", "Email", "Tipo");
+        System.out.println("---------------------------------------------------------------------------");
+        for (Usuario user : users.values()) {
+            System.out.printf("%-5s %-20s %-40s %-15s\n",
+                    user.getId(),
+                    user.getNome(),
+                    user.getEmail(),
+                    user.getTipo()
+            );
+        }
+        menu.enterSaida(sc);
+        consultar();
+    }
+
 }

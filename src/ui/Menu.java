@@ -1,8 +1,10 @@
 package ui;
 
+import java.util.Scanner;
+
 public class Menu {
     public void inicial() {
-        System.out.printf("KUATIOKA\n\n");
+        System.out.println("KUATIOKA\n");
         System.out.println("[1] Gerenciar Itens");
         System.out.println("[2] Gerenciar Usuários");
         System.out.println("[3] Operações (Empréstimo/Devolução)");
@@ -11,7 +13,7 @@ public class Menu {
     }
 
     public void gerenciarUsuarios() {
-        System.out.printf("GERENCIAR USUARIOS\n\n");
+        System.out.println("GERENCIAR USUARIOS\n");
         System.out.println("[1] Cadastrar usuario");
         System.out.println("[2] Atualizar usuário");
         System.out.println("[3] Deletar usuário");
@@ -19,7 +21,7 @@ public class Menu {
 
     }
     public void gerenciarItens() {
-        System.out.printf("GERENCIAR ITENS\n\n");
+        System.out.println("GERENCIAR ITENS\n");
         System.out.println("[1] Cadastrar item");
         System.out.println("[2] Atualizar item");
         System.out.println("[3] Deletar item");
@@ -27,6 +29,7 @@ public class Menu {
     }
 
     public void consultas() {
+        System.out.println("CONSULTAS\n");
         System.out.println("[1] Consultar Itens");
         System.out.println("[2] Consultar Usuários");
         System.out.println("[3] Consultar Empréstimos");
@@ -36,5 +39,10 @@ public class Menu {
 
     public void opInvalido() {
         System.out.println("Opção inválida");
+    }
+
+    public void enterSaida(Scanner sc) {
+        System.out.println("\nPressione ENTER para continuar...");
+        sc.nextLine();
     }
 }
