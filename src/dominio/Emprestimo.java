@@ -1,6 +1,5 @@
 package dominio;
 
-import dominio.Usuario;
 public class Emprestimo {
     private Usuario usuario;
     private Item item;
@@ -17,6 +16,5 @@ public class Emprestimo {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-
 
 }

@@ -12,13 +12,19 @@ public class Usuario {
         this.email = email;
     }
 
+    public void exibirInfo() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Email: " + email);
+
+    }
+
     public int getId() {
         return this.id;
     }
+
     public String getNome() {
         return this.nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -32,12 +38,6 @@ public class Usuario {
 
     public String getTipo() {
         return "Usuario";
-    }
-
-    public void exibirInfo() {
-        System.out.println("Nome: " + nome);
-        System.out.println("Email: " + email);
-
     }
 
 }
